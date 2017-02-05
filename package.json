@@ -1,0 +1,44 @@
+{
+  "name": "@cryptographix/laboratory",
+  "version": "1.0.0",
+  "description": "Cryptographic Laboratory",
+  "main": "build/server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptographix/crypto-lab.git"
+  },
+  "author": "Sean Michael Wykes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cryptographix/crypto-lab/issues"
+  },
+  "homepage": "https://github.com/cryptographix/crypto-lab#readme",
+  "dependencies": {
+    "aurelia-bootstrapper-webpack": "^1.1.0",
+    "aurelia-framework": "^1.0.8",
+    "aurelia-history-browser": "^1.0.0",
+    "aurelia-logging-console": "^1.0.0",
+    "aurelia-templating-binding": "^1.2.0",
+    "aurelia-templating-resources": "^1.2.0",
+    "aurelia-templating-router": "^1.0.1",
+    "body-parser": "^1.16.0",
+    "errorhandler": "^1.5.0",
+    "express": "^4.14.1",
+    "method-override": "^2.3.7"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^0.0.33",
+    "@types/errorhandler": "^0.0.30",
+    "@types/method-override": "^0.0.29",
+    "aurelia-webpack-plugin": "^1.2.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.26.0",
+    "source-map-loader": "^0.1.6",
+    "ts-loader": "^2.0.0",
+    "webpack": "ˆ2.2.0",
+    "webpack-dev-server": "^2.3.0"
+  }
+}
