@@ -54,6 +54,14 @@ module.exports = {
   },
   module: {
     rules: [
+      { test: /\.(png|gif|jpg)$/, loader: 'url-loader', query: { limit: 8192 } },
+      { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader', query: { limit: 10000, mimetype: 'application/font-woff2' } },
+      { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader', query: { limit: 10000, mimetype: 'application/font-woff' } },
+      { test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' },
+      {
+        test: /\.scss$/,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
+      },
       {
         test: /\.html$/,
         loader: 'html-loader',
