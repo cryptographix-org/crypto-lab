@@ -1,19 +1,494 @@
 <template>
-  <div id="palette">
-    <img src="../../../public/static/images/spin.svg" class="palette-spinner hide" style="display: none;">
-    <div id="palette-search" class="palette-search">
-      <div class="red-ui-searchBox-container"><i class="fa fa-search"></i><input type="text" data-i18n="[placeholder]palette.filter" placeholder="filter nodes"><a href="#"><i class="fa fa-times"></i></a><span class="red-ui-searchBox-resultCount hide"></span></div>
-    </div>
-    <div id="palette-editor">
-      <div class="editor-tray-header"><div class="editor-tray-titlebar"><ul class="editor-tray-breadcrumbs"><li data-i18n="palette.editor.title">Manage palette</li></ul></div><div class="editor-tray-toolbar"><button id="palette-editor-close" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only primary" role="button" aria-disabled="false" data-i18n="common.label.done">Done</button></div></div>
-      <div class="red-ui-tabs"><div><ul id="palette-editor-tabs"><li class="red-ui-tab active" style="width: 110px;"><a href="#nodes" class="red-ui-tab-label" title="Nodes"><span class="bidiAware" dir="">Nodes</span></a></li><li class="red-ui-tab"><a href="#install" class="red-ui-tab-label" title="Install" style="padding-left: 0px;"><span class="bidiAware" dir="">Install</span></a></li></ul></div></div>
-    <div class="palette-editor-tab" style="display: block;"><div class="palette-search"><div class="red-ui-searchBox-container"><i class="fa fa-search"></i><input type="text" data-i18n="[placeholder]palette.filter" placeholder="filter nodes"><a href="#"><i class="fa fa-times"></i></a><span class="red-ui-searchBox-resultCount hide"></span></div></div><div class="red-ui-editableList" style="top: 35px; left: 0px; bottom: 0px; right: 0px; position: absolute;"><div style="top: 0px; left: 0px; bottom: 0px; right: 0px; position: absolute; overflow-y: scroll;" class="red-ui-editableList-container"><ol id="palette-module-list" style="position: static; top: auto; bottom: auto; left: auto; right: auto; height: auto;" class="red-ui-editableList-list"><li><div class="red-ui-editableList-item-content"><div class="palette-module-header"><div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red</span></div><div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.16.2-git</span></div><div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>48 nodes</span></a><div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small disabled">in use</a></div></div></div><div class="palette-module-content"><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(228, 145, 145); border: 1px solid rgb(182, 116, 116);"></span><span class="palette-module-type-node">catch</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">change</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204);"></span><span class="palette-module-type-node">comment</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">csv</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small disabled">in use</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(135, 169, 128); border: 1px solid rgb(135, 169, 128);"></span><span class="palette-module-type-node">debug</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(230, 224, 248); border: 1px solid rgb(184, 179, 198);"></span><span class="palette-module-type-node">delay</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: darksalmon; border: 1px solid rgb(186, 120, 97);"></span><span class="palette-module-type-node">exec</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small disabled">in use</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: burlywood; border: 1px solid rgb(177, 147, 108);"></span><span class="palette-module-type-node">file</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: burlywood; border: 1px solid rgb(177, 147, 108);"></span><span class="palette-module-type-node">file in</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(253, 208, 162); border: 1px solid rgb(202, 166, 129);"></span><span class="palette-module-type-node">function</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">html</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(231, 231, 174); border: 1px solid rgb(184, 184, 139);"></span><span class="palette-module-type-node">http in</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(231, 231, 174); border: 1px solid rgb(184, 184, 139);"></span><span class="palette-module-type-node">http response</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(231, 231, 174); border: 1px solid rgb(184, 184, 139);"></span><span class="palette-module-type-node">http request</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small disabled">in use</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(166, 187, 207); border: 1px solid rgb(132, 149, 165);"></span><span class="palette-module-type-node">inject</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">json</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(221, 221, 221); border: 1px solid rgb(176, 176, 176);"></span><span class="palette-module-type-node">link in</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(221, 221, 221); border: 1px solid rgb(176, 176, 176);"></span><span class="palette-module-type-node">link out</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(216, 191, 216); border: 1px solid rgb(172, 152, 172);"></span><span class="palette-module-type-node">mqtt in</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(216, 191, 216); border: 1px solid rgb(172, 152, 172);"></span><span class="palette-module-type-node">mqtt out</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">mqtt-broker</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">range</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rpi-gpio in</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rpi-gpio out</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rpi-mouse</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rpi-keyboard</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(230, 224, 248); border: 1px solid rgb(184, 179, 198);"></span><span class="palette-module-type-node">sentiment</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">split</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">join</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(192, 237, 192); border: 1px solid rgb(153, 189, 153);"></span><span class="palette-module-type-node">status</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">switch</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: burlywood; border: 1px solid rgb(177, 147, 108);"></span><span class="palette-module-type-node">tail</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">tcp in</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">tcp out</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">tcp request</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(243, 181, 103); border: 1px solid rgb(194, 144, 82);"></span><span class="palette-module-type-node">template</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">tls-config</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(230, 224, 248); border: 1px solid rgb(184, 179, 198);"></span><span class="palette-module-type-node">trigger</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">udp in</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">udp out</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(255, 240, 240); border: 1px solid rgb(204, 192, 192);"></span><span class="palette-module-type-node">unknown</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: burlywood; border: 1px solid rgb(177, 147, 108);"></span><span class="palette-module-type-node">watch</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(215, 215, 160); border: 1px solid rgb(172, 172, 128);"></span><span class="palette-module-type-node">websocket in</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(215, 215, 160); border: 1px solid rgb(172, 172, 128);"></span><span class="palette-module-type-node">websocket out</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">websocket-listener</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">websocket-client</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">xml</span></div></div><div class="palette-module-set"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">yaml</span></div></div></div><div class="palette-module-shade hide"><img src="../../static/images/spin.svg" class="palette-spinner"></div></div></li><li><div class="red-ui-editableList-item-content disabled"><div class="palette-module-header"><div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red-node-email</span></div><div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.1.15</span></div><div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>0 / 2 nodes</span></a><div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small">enable all</a></div></div></div><div class="palette-module-content"><div class="palette-module-set palette-module-set-disabled"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">enable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">e-mail</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">e-mail in</span></div></div></div>
-      <div class="palette-module-shade hide"><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></li><li><div class="red-ui-editableList-item-content disabled"><div class="palette-module-header"><div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red-node-feedparser</span></div><div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.1.7</span></div><div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>0 / 1 node</span></a><div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small">enable all</a></div></div></div><div class="palette-module-content"><div class="palette-module-set palette-module-set-disabled"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">enable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">feedparse</span></div></div></div><div class="palette-module-shade hide"><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></li><li><div class="red-ui-editableList-item-content disabled"><div class="palette-module-header"><div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red-node-rbe</span></div><div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.1.6</span></div><div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>0 / 1 node</span></a><div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small">enable all</a></div></div></div><div class="palette-module-content"><div class="palette-module-set palette-module-set-disabled"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">enable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rbe</span></div></div></div><div class="palette-module-shade hide"><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></li><li><div class="red-ui-editableList-item-content disabled"><div class="palette-module-header"><div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red-node-twitter</span></div><div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.1.9</span></div><div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>0 / 3 nodes</span></a><div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small">enable all</a></div></div></div><div class="palette-module-content"><div class="palette-module-set palette-module-set-disabled"><div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">enable</a></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">twitter-credentials</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">twitter in</span></div><div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">twitter out</span></div></div></div><div class="palette-module-shade hide"><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></li></ol></div></div></div><div class="palette-editor-tab hide"><div class="palette-editor-toolbar"><span>sort: </span><span class="button-group"><a href="#" class="sidebar-header-button-toggle selected" data-i18n="palette.editor.sortAZ">a-z</a><a href="#" class="sidebar-header-button-toggle" data-i18n="palette.editor.sortRecent">recent</a></span><span><a href="#" class="sidebar-header-button"><i class="fa fa-refresh"></i></a></span></div><div class="palette-search"><div class="red-ui-searchBox-container"><i class="fa fa-search"></i><input type="text" data-i18n="[placeholder]palette.search" placeholder="search modules"><a href="#"><i class="fa fa-times"></i></a><span class="red-ui-searchBox-resultCount hide"></span></div></div><div class="red-ui-editableList" style="top: 78px; left: 0px; bottom: 0px; right: 0px; position: absolute;"><div style="top: 0px; left: 0px; bottom: 0px; right: 0px; position: absolute; overflow-y: scroll;" class="red-ui-editableList-container"><ol style="position: static; top: auto; bottom: auto; left: auto; right: auto; height: auto;" class="red-ui-editableList-list"></ol></div></div><div id="palette-module-install-shade" class="palette-module-shade hide"><div class="palette-module-shade-status"></div><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></div>
-    <div id="palette-container" class="palette-scroll"><div id="palette-container-subflows" class="palette-category palette-close hide palette-closed" style="display: block;"><div id="palette-header-subflows" class="palette-header"><i class="fa fa-angle-down"></i><span>subflows</span></div><div class="palette-content" id="palette-base-category-subflows" style="display: none;"><div id="palette-subflows-input"></div><div id="palette-subflows-output"></div><div id="palette-subflows-function"></div><div id="palette-subflows"><div id="palette_node_subflow_5be64099_3f634" class="palette_node ui-draggable" style="background-color: rgb(221, 170, 153); height: 48px;"><div class="palette_label" dir="">Subflow<br>XXYZABCD</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/subflow.png)"></div></div><div class="palette_port palette_port_output" style="top: 19px;"></div><div class="palette_port palette_port_input" style="top: 19px;"></div></div></div></div></div><div id="palette-container-input" class="palette-category palette-close hide palette-closed" style="display: block;"><div id="palette-header-input" class="palette-header"><i class="fa fa-angle-down"></i><span>input</span></div><div class="palette-content" id="palette-base-category-input" style="display: none;"><div id="palette-input-input"></div><div id="palette-input-output"></div><div id="palette-input-function"></div><div id="palette-input"><div id="palette_node_inject" class="palette_node ui-draggable" style="background-color: rgb(166, 187, 207); height: 28px;"><div class="palette_label" dir="">inject</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/inject.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div><div id="palette_node_catch" class="palette_node ui-draggable" style="background-color: rgb(228, 145, 145); height: 28px;"><div class="palette_label" dir="">catch</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/alert.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div><div id="palette_node_status" class="palette_node ui-draggable" style="background-color: rgb(192, 237, 192); height: 28px;"><div class="palette_label" dir="">status</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/alert.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div><div id="palette_node_link_in" class="palette_node ui-draggable" style="background-color: rgb(221, 221, 221); height: 28px;"><div class="palette_label" dir="">link</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/link-out.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div><div id="palette_node_mqtt_in" class="palette_node ui-draggable" style="background-color: rgb(216, 191, 216); height: 28px;"><div class="palette_label" dir="">mqtt</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/bridge.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div><div id="palette_node_http_in" class="palette_node ui-draggable" style="background-color: rgb(231, 231, 174); height: 28px;"><div class="palette_label" dir="">http</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div><div id="palette_node_websocket_in" class="palette_node ui-draggable" style="background-color: rgb(215, 215, 160); height: 28px;"><div class="palette_label" dir="">websocket</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div><div id="palette_node_tcp_in" class="palette_node ui-draggable" style="background-color: silver; height: 28px;"><div class="palette_label" dir="">tcp</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div><div id="palette_node_udp_in" class="palette_node ui-draggable" style="background-color: silver; height: 28px;"><div class="palette_label" dir="">udp</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div></div></div></div><div id="palette-container-output" class="palette-category palette-close hide palette-closed" style="display: block;"><div id="palette-header-output" class="palette-header"><i class="fa fa-angle-down"></i><span>output</span></div><div class="palette-content" id="palette-base-category-output" style="display: none;"><div id="palette-output-input"></div><div id="palette-output-output"></div><div id="palette-output-function"></div><div id="palette-output"><div id="palette_node_debug" class="palette_node ui-draggable" style="background-color: rgb(135, 169, 128); height: 28px;"><div class="palette_label palette_label_right" dir="">debug</div><div class="palette_icon_container palette_icon_container_right"><div class="palette_icon" style="background-image: url(icons/debug.png)"></div></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_link_out" class="palette_node ui-draggable" style="background-color: rgb(221, 221, 221); height: 28px;"><div class="palette_label palette_label_right" dir="">link</div><div class="palette_icon_container palette_icon_container_right"><div class="palette_icon" style="background-image: url(icons/link-out.png)"></div></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_mqtt_out" class="palette_node ui-draggable" style="background-color: rgb(216, 191, 216); height: 28px;"><div class="palette_label palette_label_right" dir="">mqtt</div><div class="palette_icon_container palette_icon_container_right"><div class="palette_icon" style="background-image: url(icons/bridge.png)"></div></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_http_response" class="palette_node ui-draggable" style="background-color: rgb(231, 231, 174); height: 28px;"><div class="palette_label palette_label_right" dir="">http response</div><div class="palette_icon_container palette_icon_container_right"><div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_websocket_out" class="palette_node ui-draggable" style="background-color: rgb(215, 215, 160); height: 28px;"><div class="palette_label palette_label_right" dir="">websocket</div><div class="palette_icon_container palette_icon_container_right"><div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_tcp_out" class="palette_node ui-draggable" style="background-color: silver; height: 28px;"><div class="palette_label palette_label_right" dir="">tcp</div><div class="palette_icon_container palette_icon_container_right"><div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_udp_out" class="palette_node ui-draggable" style="background-color: silver; height: 28px;"><div class="palette_label palette_label_right" dir="">udp</div><div class="palette_icon_container palette_icon_container_right"><div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div></div></div></div><div id="palette-container-function" class="palette-category palette-close hide palette-closed" style="display: block;"><div id="palette-header-function" class="palette-header"><i class="fa fa-angle-down"></i><span>function</span></div><div class="palette-content" id="palette-base-category-function" style="display: none;"><div id="palette-function-input"></div><div id="palette-function-output"></div><div id="palette-function-function"></div><div id="palette-function"><div id="palette_node_function" class="palette_node ui-draggable" style="background-color: rgb(253, 208, 162); height: 28px;"><div class="palette_label" dir="">function</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/function.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_template" class="palette_node ui-draggable" style="background-color: rgb(243, 181, 103); height: 28px;"><div class="palette_label" dir="">template</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/template.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_delay" class="palette_node ui-draggable" style="background-color: rgb(230, 224, 248); height: 28px;"><div class="palette_label" dir="">delay</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/timer.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_trigger" class="palette_node ui-draggable" style="background-color: rgb(230, 224, 248); height: 28px;"><div class="palette_label" dir="">trigger</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/trigger.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_comment" class="palette_node ui-draggable" style="background-color: rgb(255, 255, 255); height: 28px;"><div class="palette_label" dir="">comment</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/comment.png)"></div></div></div><div id="palette_node_http_request" class="palette_node ui-draggable" style="background-color: rgb(231, 231, 174); height: 28px;"><div class="palette_label" dir="">http request</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_tcp_request" class="palette_node ui-draggable" style="background-color: silver; height: 28px;"><div class="palette_label" dir="">tcp request</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_switch" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;"><div class="palette_label" dir="">switch</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/switch.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_change" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;"><div class="palette_label" dir="">change</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/swap.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_range" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;"><div class="palette_label" dir="">range</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/range.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_split" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;"><div class="palette_label" dir="">split</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/split.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_join" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;"><div class="palette_label" dir="">join</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/join.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_csv" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;"><div class="palette_label" dir="">csv</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/parser-csv.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_html" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;"><div class="palette_label" dir="">html</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/parser-html.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_json" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;"><div class="palette_label" dir="">json</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/parser-json.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_xml" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;"><div class="palette_label" dir="">xml</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/parser-xml.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div><div id="palette_node_yaml" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;"><div class="palette_label" dir="">yaml</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/parser-yaml.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div></div></div></div><div id="palette-container-social" class="palette-category palette-close hide palette-closed"><div id="palette-header-social" class="palette-header"><i class="fa fa-angle-down"></i><span>social</span></div><div class="palette-content" id="palette-base-category-social" style="display: none;"><div id="palette-social-input"></div><div id="palette-social-output"></div><div id="palette-social-function"></div></div></div><div id="palette-container-mobile" class="palette-category palette-close hide palette-closed"><div id="palette-header-mobile" class="palette-header"><i class="fa fa-angle-down"></i><span>mobile</span></div><div class="palette-content" id="palette-base-category-mobile" style="display: none;"><div id="palette-mobile-input"></div><div id="palette-mobile-output"></div><div id="palette-mobile-function"></div></div></div><div id="palette-container-storage" class="palette-category palette-close hide palette-closed" style="display: block;"><div id="palette-header-storage" class="palette-header"><i class="fa fa-angle-down"></i><span>storage</span></div><div class="palette-content" id="palette-base-category-storage" style="display: none;"><div id="palette-storage-input"><div id="palette_node_tail" class="palette_node ui-draggable" style="background-color: burlywood; height: 28px;"><div class="palette_label" dir="">tail</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/file.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div><div id="palette_node_file_in" class="palette_node ui-draggable" style="background-color: burlywood; height: 28px;"><div class="palette_label" dir="">file</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/file.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div></div><div id="palette-storage-output"><div id="palette_node_file" class="palette_node ui-draggable" style="background-color: burlywood; height: 28px;"><div class="palette_label palette_label_right" dir="">file</div><div class="palette_icon_container palette_icon_container_right"><div class="palette_icon" style="background-image: url(icons/file.png)"></div></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div></div><div id="palette-storage-function"></div></div></div><div id="palette-container-analysis" class="palette-category palette-close hide palette-closed" style="display: block;"><div id="palette-header-analysis" class="palette-header"><i class="fa fa-angle-down"></i><span>analysis</span></div><div class="palette-content" id="palette-base-category-analysis" style="display: none;"><div id="palette-analysis-input"></div><div id="palette-analysis-output"></div><div id="palette-analysis-function"><div id="palette_node_sentiment" class="palette_node ui-draggable" style="background-color: rgb(230, 224, 248); height: 28px;"><div class="palette_label" dir="">sentiment</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/arrow-in.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div></div></div></div><div id="palette-container-advanced" class="palette-category palette-close hide palette-closed" style="display: block;"><div id="palette-header-advanced" class="palette-header"><i class="fa fa-angle-down"></i><span>advanced</span></div><div class="palette-content" id="palette-base-category-advanced" style="display: none;"><div id="palette-advanced-input"><div id="palette_node_watch" class="palette_node ui-draggable" style="background-color: burlywood; height: 28px;"><div class="palette_label" dir="">watch</div><div class="palette_icon_container"><div class="palette_icon" style="background-image: url(icons/watch.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div></div></div><div id="palette-advanced-output"></div><div id="palette-advanced-function"><div id="palette_node_exec" class="palette_node ui-draggable" style="background-color: darksalmon; height: 28px;"><div class="palette_label palette_label_right" dir="">exec</div><div class="palette_icon_container palette_icon_container_right"><div class="palette_icon" style="background-image: url(icons/arrow-in.png)"></div></div><div class="palette_port palette_port_output" style="top: 9px;"></div><div class="palette_port palette_port_input" style="top: 9px;"></div></div></div></div></div></div>
-    <div id="palette-footer">
-      <a class="palette-button" id="palette-collapse-all" href="#"><i class="fa fa-angle-double-up"></i></a>
-      <a class="palette-button" id="palette-expand-all" href="#"><i class="fa fa-angle-double-down"></i></a>
-    </div>
-    <div id="palette-shade" class="hide" style="display: none;"></div>
+  <img src="../../../public/static/images/spin.svg" class="palette-spinner hide" style="display: none;">
+  <div id="palette-search" class="palette-search">
+    <div class="red-ui-searchBox-container"><i class="fa fa-search"></i><input type="text" data-i18n="[placeholder]palette.filter" placeholder="filter nodes"><a href="#"><i class="fa fa-times"></i></a><span class="red-ui-searchBox-resultCount hide"></span></div>
   </div>
+  <div id="palette-editor">
+    <div class="editor-tray-header">
+<div class="editor-tray-titlebar"><ul class="editor-tray-breadcrumbs">
+  <li data-i18n="palette.editor.title">Manage palette</li></ul>
+  </div>
+  <div class="editor-tray-toolbar"><button id="palette-editor-close" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only primary" role="button" aria-disabled="false" data-i18n="common.label.done">Done</button>
+  </div>
+</div>
+    <div class="red-ui-tabs">
+<div><ul id="palette-editor-tabs"><li class="red-ui-tab active" style="width: 110px;"><a href="#nodes" class="red-ui-tab-label" title="Nodes"><span class="bidiAware" dir="">Nodes</span></a></li><li class="red-ui-tab"><a href="#install" class="red-ui-tab-label" title="Install" style="padding-left: 0px;"><span class="bidiAware" dir="">Install</span></a></li></ul></div></div>
+  <div class="palette-editor-tab" style="display: block;">
+<div class="palette-search">
+<div class="red-ui-searchBox-container"><i class="fa fa-search"></i><input type="text" data-i18n="[placeholder]palette.filter" placeholder="filter nodes"><a href="#"><i class="fa fa-times"></i></a><span class="red-ui-searchBox-resultCount hide"></span></div></div>
+<div class="red-ui-editableList" style="top: 35px; left: 0px; bottom: 0px; right: 0px; position: absolute;">
+<div style="top: 0px; left: 0px; bottom: 0px; right: 0px; position: absolute; overflow-y: scroll;" class="red-ui-editableList-container"><ol id="palette-module-list" style="position: static; top: auto; bottom: auto; left: auto; right: auto; height: auto;" class="red-ui-editableList-list"><li>
+<div class="red-ui-editableList-item-content">
+<div class="palette-module-header">
+<div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red</span></div>
+<div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.16.2-git</span></div>
+<div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>48 nodes</span></a>
+<div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small disabled">in use</a></div></div></div>
+<div class="palette-module-content">
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(228, 145, 145); border: 1px solid rgb(182, 116, 116);"></span><span class="palette-module-type-node">catch</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">change</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204);"></span><span class="palette-module-type-node">comment</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">csv</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small disabled">in use</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(135, 169, 128); border: 1px solid rgb(135, 169, 128);"></span><span class="palette-module-type-node">debug</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(230, 224, 248); border: 1px solid rgb(184, 179, 198);"></span><span class="palette-module-type-node">delay</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: darksalmon; border: 1px solid rgb(186, 120, 97);"></span><span class="palette-module-type-node">exec</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small disabled">in use</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: burlywood; border: 1px solid rgb(177, 147, 108);"></span><span class="palette-module-type-node">file</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: burlywood; border: 1px solid rgb(177, 147, 108);"></span><span class="palette-module-type-node">file in</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(253, 208, 162); border: 1px solid rgb(202, 166, 129);"></span><span class="palette-module-type-node">function</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">html</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(231, 231, 174); border: 1px solid rgb(184, 184, 139);"></span><span class="palette-module-type-node">http in</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(231, 231, 174); border: 1px solid rgb(184, 184, 139);"></span><span class="palette-module-type-node">http response</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(231, 231, 174); border: 1px solid rgb(184, 184, 139);"></span><span class="palette-module-type-node">http request</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small disabled">in use</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(166, 187, 207); border: 1px solid rgb(132, 149, 165);"></span><span class="palette-module-type-node">inject</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">json</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(221, 221, 221); border: 1px solid rgb(176, 176, 176);"></span><span class="palette-module-type-node">link in</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(221, 221, 221); border: 1px solid rgb(176, 176, 176);"></span><span class="palette-module-type-node">link out</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(216, 191, 216); border: 1px solid rgb(172, 152, 172);"></span><span class="palette-module-type-node">mqtt in</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(216, 191, 216); border: 1px solid rgb(172, 152, 172);"></span><span class="palette-module-type-node">mqtt out</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">mqtt-broker</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">range</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rpi-gpio in</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rpi-gpio out</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rpi-mouse</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rpi-keyboard</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(230, 224, 248); border: 1px solid rgb(184, 179, 198);"></span><span class="palette-module-type-node">sentiment</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">split</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">join</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(192, 237, 192); border: 1px solid rgb(153, 189, 153);"></span><span class="palette-module-type-node">status</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(226, 217, 110); border: 1px solid rgb(180, 173, 88);"></span><span class="palette-module-type-node">switch</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: burlywood; border: 1px solid rgb(177, 147, 108);"></span><span class="palette-module-type-node">tail</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">tcp in</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">tcp out</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">tcp request</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(243, 181, 103); border: 1px solid rgb(194, 144, 82);"></span><span class="palette-module-type-node">template</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">tls-config</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(230, 224, 248); border: 1px solid rgb(184, 179, 198);"></span><span class="palette-module-type-node">trigger</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">udp in</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: silver; border: 1px solid rgb(153, 153, 153);"></span><span class="palette-module-type-node">udp out</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(255, 240, 240); border: 1px solid rgb(204, 192, 192);"></span><span class="palette-module-type-node">unknown</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: burlywood; border: 1px solid rgb(177, 147, 108);"></span><span class="palette-module-type-node">watch</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(215, 215, 160); border: 1px solid rgb(172, 172, 128);"></span><span class="palette-module-type-node">websocket in</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(215, 215, 160); border: 1px solid rgb(172, 172, 128);"></span><span class="palette-module-type-node">websocket out</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">websocket-listener</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">websocket-client</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">xml</span></div></div>
+<div class="palette-module-set">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">disable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(222, 189, 92); border: 1px solid rgb(177, 151, 73);"></span><span class="palette-module-type-node">yaml</span></div></div></div>
+<div class="palette-module-shade hide"><img src="../../static/images/spin.svg" class="palette-spinner"></div></div></li><li>
+<div class="red-ui-editableList-item-content disabled">
+<div class="palette-module-header">
+<div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red-node-email</span></div>
+<div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.1.15</span></div>
+<div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>0 / 2 nodes</span></a>
+<div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small">enable all</a></div></div></div>
+<div class="palette-module-content">
+<div class="palette-module-set palette-module-set-disabled">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">enable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">e-mail</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">e-mail in</span></div></div></div>
+    <div class="palette-module-shade hide"><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></li><li>
+<div class="red-ui-editableList-item-content disabled">
+<div class="palette-module-header">
+<div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red-node-feedparser</span></div>
+<div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.1.7</span></div>
+<div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>0 / 1 node</span></a>
+<div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small">enable all</a></div></div></div>
+<div class="palette-module-content">
+<div class="palette-module-set palette-module-set-disabled">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">enable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">feedparse</span></div></div></div>
+<div class="palette-module-shade hide"><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></li><li>
+<div class="red-ui-editableList-item-content disabled">
+<div class="palette-module-header">
+<div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red-node-rbe</span></div>
+<div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.1.6</span></div>
+<div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>0 / 1 node</span></a>
+<div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small">enable all</a></div></div></div>
+<div class="palette-module-content">
+<div class="palette-module-set palette-module-set-disabled">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">enable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">rbe</span></div></div></div>
+<div class="palette-module-shade hide"><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></li><li>
+<div class="red-ui-editableList-item-content disabled">
+<div class="palette-module-header">
+<div class="palette-module-meta palette-module-name"><i class="fa fa-cube"></i><span>node-red-node-twitter</span></div>
+<div class="palette-module-meta palette-module-version"><i class="fa fa-tag"></i><span>0.1.9</span></div>
+<div class="palette-module-meta"><a href="#" class="editor-button editor-button-small palette-module-set-button"><i class="fa fa-angle-right palette-module-node-chevron"></i> <span>0 / 3 nodes</span></a>
+<div class="palette-module-button-group"><a href="#" class="editor-button editor-button-small" style="display: none;">update to __version__</a><a href="#" class="editor-button editor-button-small" style="display: none;">remove</a><a href="#" class="editor-button editor-button-small">enable all</a></div></div></div>
+<div class="palette-module-content">
+<div class="palette-module-set palette-module-set-disabled">
+<div class="palette-module-set-button-group"><a href="#" class="editor-button editor-button-small">enable</a></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">twitter-credentials</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">twitter in</span></div>
+<div class="palette-module-type"><span class="palette-module-type-swatch" style="background: rgb(238, 238, 238); border: 1px dashed rgb(153, 153, 153);"></span><span class="palette-module-type-node">twitter out</span></div></div></div>
+<div class="palette-module-shade hide"><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></li></ol></div></div></div>
+<div class="palette-editor-tab hide">
+<div class="palette-editor-toolbar"><span>sort: </span><span class="button-group"><a href="#" class="sidebar-header-button-toggle selected" data-i18n="palette.editor.sortAZ">a-z</a><a href="#" class="sidebar-header-button-toggle" data-i18n="palette.editor.sortRecent">recent</a></span><span><a href="#" class="sidebar-header-button"><i class="fa fa-refresh"></i></a></span></div>
+<div class="palette-search">
+<div class="red-ui-searchBox-container"><i class="fa fa-search"></i><input type="text" data-i18n="[placeholder]palette.search" placeholder="search modules"><a href="#"><i class="fa fa-times"></i></a><span class="red-ui-searchBox-resultCount hide"></span></div></div>
+<div class="red-ui-editableList" style="top: 78px; left: 0px; bottom: 0px; right: 0px; position: absolute;">
+<div style="top: 0px; left: 0px; bottom: 0px; right: 0px; position: absolute; overflow-y: scroll;" class="red-ui-editableList-container"><ol style="position: static; top: auto; bottom: auto; left: auto; right: auto; height: auto;" class="red-ui-editableList-list"></ol></div></div>
+<div id="palette-module-install-shade" class="palette-module-shade hide">
+<div class="palette-module-shade-status"></div><img src="../../../public/static/images/spin.svg" class="palette-spinner"></div></div></div>
+  <div id="palette-container" class="palette-scroll">
+    <div id="palette-container-subflows" class="palette-category palette-close hide palette-closed" style="display: block;">
+      <div id="palette-header-subflows" class="palette-header">
+        <i class="fa fa-angle-down"></i>
+        <span>subflows</span>
+      </div>
+      <div class="palette-content" id="palette-base-category-subflows" style="display: none;">
+        <div id="palette-subflows-input"></div>
+        <div id="palette-subflows-output"></div>
+        <div id="palette-subflows-function"></div>
+        <div id="palette-subflows">
+          <div id="palette_node_subflow_5be64099_3f634" class="palette_node ui-draggable" style="background-color: rgb(221, 170, 153); height: 48px;">
+<div class="palette_label" dir="">Subflow<br>XXYZABCD</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/subflow.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 19px;"></div>
+<div class="palette_port palette_port_input" style="top: 19px;">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="palette-container-input" class="palette-category palette-close hide palette-closed" style="display: block;" click.trigger='toggleCategory($event.currentTarget)'>
+  <div id="palette-header-input" class="palette-header">
+    <i class="fa fa-angle-down"></i><span>input</span>
+  </div>
+  <div class="palette-content" id="palette-base-category-input" style="display: none;">
+    <div id="palette-input-input"></div>
+    <div id="palette-input-output"></div>
+    <div id="palette-input-function"></div>
+    <div id="palette-input">
+      <div id="palette_node_inject" class="palette_node ui-draggable" style="background-color: rgb(166, 187, 207); height: 28px;">
+        <div class="palette_label" dir="">inject</div>
+        <div class="palette_icon_container">
+          <div class="palette_icon" style="background-image: url(icons/inject.png)"></div>
+        </div>
+        <div class="palette_port palette_port_output" style="top: 9px;"></div>
+      </div>
+      <div id="palette_node_catch" class="palette_node ui-draggable" style="background-color: rgb(228, 145, 145); height: 28px;">
+<div class="palette_label" dir="">catch</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/alert.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div>
+<div id="palette_node_status" class="palette_node ui-draggable" style="background-color: rgb(192, 237, 192); height: 28px;">
+<div class="palette_label" dir="">status</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/alert.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div>
+<div id="palette_node_link_in" class="palette_node ui-draggable" style="background-color: rgb(221, 221, 221); height: 28px;">
+<div class="palette_label" dir="">link</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/link-out.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div>
+<div id="palette_node_mqtt_in" class="palette_node ui-draggable" style="background-color: rgb(216, 191, 216); height: 28px;">
+<div class="palette_label" dir="">mqtt</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/bridge.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div>
+<div id="palette_node_http_in" class="palette_node ui-draggable" style="background-color: rgb(231, 231, 174); height: 28px;">
+<div class="palette_label" dir="">http</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div>
+<div id="palette_node_websocket_in" class="palette_node ui-draggable" style="background-color: rgb(215, 215, 160); height: 28px;">
+<div class="palette_label" dir="">websocket</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div>
+<div id="palette_node_tcp_in" class="palette_node ui-draggable" style="background-color: silver; height: 28px;">
+<div class="palette_label" dir="">tcp</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div>
+<div id="palette_node_udp_in" class="palette_node ui-draggable" style="background-color: silver; height: 28px;">
+<div class="palette_label" dir="">udp</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div></div></div></div>
+<div id="palette-container-output" class="palette-category palette-close hide palette-closed" style="display: block;" click.trigger='toggleCategory($event.currentTarget)'>
+<div id="palette-header-output" class="palette-header"><i class="fa fa-angle-down"></i><span>output</span></div>
+<div class="palette-content" id="palette-base-category-output" style="display: none;">
+<div id="palette-output-input"></div>
+<div id="palette-output-output"></div>
+<div id="palette-output-function"></div>
+<div id="palette-output">
+<div id="palette_node_debug" class="palette_node ui-draggable" style="background-color: rgb(135, 169, 128); height: 28px;">
+<div class="palette_label palette_label_right" dir="">debug</div>
+<div class="palette_icon_container palette_icon_container_right">
+<div class="palette_icon" style="background-image: url(icons/debug.png)"></div></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_link_out" class="palette_node ui-draggable" style="background-color: rgb(221, 221, 221); height: 28px;">
+<div class="palette_label palette_label_right" dir="">link</div>
+<div class="palette_icon_container palette_icon_container_right">
+<div class="palette_icon" style="background-image: url(icons/link-out.png)"></div></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_mqtt_out" class="palette_node ui-draggable" style="background-color: rgb(216, 191, 216); height: 28px;">
+<div class="palette_label palette_label_right" dir="">mqtt</div>
+<div class="palette_icon_container palette_icon_container_right">
+<div class="palette_icon" style="background-image: url(icons/bridge.png)"></div></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_http_response" class="palette_node ui-draggable" style="background-color: rgb(231, 231, 174); height: 28px;">
+<div class="palette_label palette_label_right" dir="">http response</div>
+<div class="palette_icon_container palette_icon_container_right">
+<div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_websocket_out" class="palette_node ui-draggable" style="background-color: rgb(215, 215, 160); height: 28px;">
+<div class="palette_label palette_label_right" dir="">websocket</div>
+<div class="palette_icon_container palette_icon_container_right">
+<div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_tcp_out" class="palette_node ui-draggable" style="background-color: silver; height: 28px;">
+<div class="palette_label palette_label_right" dir="">tcp</div>
+<div class="palette_icon_container palette_icon_container_right">
+<div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_udp_out" class="palette_node ui-draggable" style="background-color: silver; height: 28px;">
+<div class="palette_label palette_label_right" dir="">udp</div>
+<div class="palette_icon_container palette_icon_container_right">
+<div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div></div></div></div>
+<div id="palette-container-function" class="palette-category palette-close hide palette-closed" style="display: block;" click.trigger='toggleCategory($event.currentTarget)'>
+<div id="palette-header-function" class="palette-header"><i class="fa fa-angle-down"></i><span>function</span></div>
+<div class="palette-content" id="palette-base-category-function" style="display: none;">
+<div id="palette-function-input"></div>
+<div id="palette-function-output"></div>
+<div id="palette-function-function"></div>
+<div id="palette-function">
+<div id="palette_node_function" class="palette_node ui-draggable" style="background-color: rgb(253, 208, 162); height: 28px;">
+<div class="palette_label" dir="">function</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/function.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_template" class="palette_node ui-draggable" style="background-color: rgb(243, 181, 103); height: 28px;">
+<div class="palette_label" dir="">template</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/template.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_delay" class="palette_node ui-draggable" style="background-color: rgb(230, 224, 248); height: 28px;">
+<div class="palette_label" dir="">delay</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/timer.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_trigger" class="palette_node ui-draggable" style="background-color: rgb(230, 224, 248); height: 28px;">
+<div class="palette_label" dir="">trigger</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/trigger.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_comment" class="palette_node ui-draggable" style="background-color: rgb(255, 255, 255); height: 28px;">
+<div class="palette_label" dir="">comment</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/comment.png)"></div></div></div>
+<div id="palette_node_http_request" class="palette_node ui-draggable" style="background-color: rgb(231, 231, 174); height: 28px;">
+<div class="palette_label" dir="">http request</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/white-globe.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_tcp_request" class="palette_node ui-draggable" style="background-color: silver; height: 28px;">
+<div class="palette_label" dir="">tcp request</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/bridge-dash.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_switch" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;">
+<div class="palette_label" dir="">switch</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/switch.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_change" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;">
+<div class="palette_label" dir="">change</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/swap.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_range" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;">
+<div class="palette_label" dir="">range</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/range.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_split" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;">
+<div class="palette_label" dir="">split</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/split.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_join" class="palette_node ui-draggable" style="background-color: rgb(226, 217, 110); height: 28px;">
+<div class="palette_label" dir="">join</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/join.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_csv" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;">
+<div class="palette_label" dir="">csv</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/parser-csv.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_html" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;">
+<div class="palette_label" dir="">html</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/parser-html.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_json" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;">
+<div class="palette_label" dir="">json</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/parser-json.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_xml" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;">
+<div class="palette_label" dir="">xml</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/parser-xml.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div>
+<div id="palette_node_yaml" class="palette_node ui-draggable" style="background-color: rgb(222, 189, 92); height: 28px;">
+<div class="palette_label" dir="">yaml</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/parser-yaml.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div></div></div></div>
+<div id="palette-container-social" class="palette-category palette-close hide palette-closed" click.trigger='toggleCategory($event.currentTarget)'>
+<div id="palette-header-social" class="palette-header"><i class="fa fa-angle-down"></i><span>social</span></div>
+<div class="palette-content" id="palette-base-category-social" style="display: none;">
+<div id="palette-social-input"></div>
+<div id="palette-social-output"></div>
+<div id="palette-social-function"></div></div></div>
+<div id="palette-container-mobile" class="palette-category palette-close hide palette-closed" click.trigger='toggleCategory($event.currentTarget)'>
+<div id="palette-header-mobile" class="palette-header"><i class="fa fa-angle-down"></i><span>mobile</span></div>
+<div class="palette-content" id="palette-base-category-mobile" style="display: none;">
+<div id="palette-mobile-input"></div>
+<div id="palette-mobile-output"></div>
+<div id="palette-mobile-function"></div></div></div>
+<div id="palette-container-storage" class="palette-category palette-close hide palette-closed" style="display: block;" click.trigger='toggleCategory($event.currentTarget)'>
+<div id="palette-header-storage" class="palette-header"><i class="fa fa-angle-down"></i><span>storage</span></div>
+<div class="palette-content" id="palette-base-category-storage" style="display: none;">
+<div id="palette-storage-input">
+<div id="palette_node_tail" class="palette_node ui-draggable" style="background-color: burlywood; height: 28px;">
+<div class="palette_label" dir="">tail</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/file.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div>
+<div id="palette_node_file_in" class="palette_node ui-draggable" style="background-color: burlywood; height: 28px;">
+<div class="palette_label" dir="">file</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/file.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div></div>
+<div id="palette-storage-output">
+<div id="palette_node_file" class="palette_node ui-draggable" style="background-color: burlywood; height: 28px;">
+<div class="palette_label palette_label_right" dir="">file</div>
+<div class="palette_icon_container palette_icon_container_right">
+<div class="palette_icon" style="background-image: url(icons/file.png)"></div></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div></div>
+<div id="palette-storage-function"></div></div></div>
+<div id="palette-container-analysis" class="palette-category palette-close hide palette-closed" style="display: block;">
+<div id="palette-header-analysis" class="palette-header"><i class="fa fa-angle-down"></i><span>analysis</span></div>
+<div class="palette-content" id="palette-base-category-analysis" style="display: none;">
+<div id="palette-analysis-input"></div>
+<div id="palette-analysis-output"></div>
+<div id="palette-analysis-function">
+<div id="palette_node_sentiment" class="palette_node ui-draggable" style="background-color: rgb(230, 224, 248); height: 28px;">
+<div class="palette_label" dir="">sentiment</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/arrow-in.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div></div></div></div>
+<div id="palette-container-advanced" class="palette-category palette-close hide palette-closed" style="display: block;" click.trigger='toggleCategory($event.currentTarget)'>
+<div id="palette-header-advanced" class="palette-header"><i class="fa fa-angle-down"></i><span>advanced</span></div>
+<div class="palette-content" id="palette-base-category-advanced" style="display: none;">
+<div id="palette-advanced-input">
+<div id="palette_node_watch" class="palette_node ui-draggable" style="background-color: burlywood; height: 28px;">
+<div class="palette_label" dir="">watch</div>
+<div class="palette_icon_container">
+<div class="palette_icon" style="background-image: url(icons/watch.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div></div></div>
+<div id="palette-advanced-output"></div>
+<div id="palette-advanced-function">
+<div id="palette_node_exec" class="palette_node ui-draggable" style="background-color: darksalmon; height: 28px;">
+<div class="palette_label palette_label_right" dir="">exec</div>
+<div class="palette_icon_container palette_icon_container_right">
+<div class="palette_icon" style="background-image: url(icons/arrow-in.png)"></div></div>
+<div class="palette_port palette_port_output" style="top: 9px;"></div>
+<div class="palette_port palette_port_input" style="top: 9px;"></div></div></div></div></div></div>
+  <div id="palette-footer">
+    <a class="palette-button" id="palette-collapse-all" href="#"><i class="fa fa-angle-double-up"></i></a>
+    <a class="palette-button" id="palette-expand-all" href="#"><i class="fa fa-angle-double-down"></i></a>
+  </div>
+  <div id="palette-shade" class="hide" style="display: none;"></div>
 </template>

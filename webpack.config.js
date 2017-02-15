@@ -86,6 +86,9 @@ module.exports = {
   },
   resolve: {
     extensions: [ ".tsx", ".ts", ".js" ],
+    alias: {
+      jquery: "public/static/vendor/jquery/js/jquery-1.11.3.min"
+    },
     modules: [path.resolve(), 'node_modules']
   },
   plugins: [
