@@ -59,6 +59,10 @@ module.exports = {
       { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader', query: { limit: 10000, mimetype: 'application/font-woff' } },
       { test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' },
       {
+        test: /\.css$/,
+        loaders: ["style-loader", "css-loader"]
+      },
+      {
         test: /\.scss$/,
         loaders: ["style-loader", "css-loader", "sass-loader"]
       },
@@ -74,11 +78,11 @@ module.exports = {
       },
       {
         enforce: 'pre',
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: "source-map-loader"
       },
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
       },
