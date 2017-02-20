@@ -1,0 +1,48 @@
+<template>
+  <require from="./tlv-nodes/tlv-node" as="tlv-node"></require>
+
+  <div id="tlvx-header" class="form">
+    <input type="button" class="button right" value="Compact" click.trigger="cleanupTLV()"></input>
+    <input type="button" class="button right" value="Reformat" click.trigger="reformatTLV()"></input>
+  </div>
+  <nav id="tlvx-sidebar">
+    <ul>
+      <li>
+        <a><img class="sidebar-icon" src="../../static/icons/arena.svg"/></a>
+        <span class="tooltip">Tooltip</span>
+      </li>
+      <li>
+        <a><img class="sidebar-icon" src="../../static/icons/driver.svg"/></a>
+        <span class="tooltip">Tooltip</span>
+      </li>
+      <li>
+        <a><img class="sidebar-icon" src="../../static/icons/encoder.svg"/></a>
+        <span class="tooltip">Tooltip</span>
+      </li>
+    </ul>
+  </nav>
+  <div id="tlvx-workspace">
+    <div show.bind="parseError" style="border-radius: 5px; border-width: 2px; border-style: dashed; background-color: red; color: white; font-size: 20px; position: absolute; right: 0; top: 0;">
+      <span class="xtooltip">${parseError}</span>
+    </div>
+    <div id="data-in" class="hex-pane">
+      <!--label for="tlv-hex-in">TLV Data</label-->
+      <textarea id="tlv-hex-in" placeholder="Type or paste hexadecimal TLV data here"
+        value.bind="hexInput & debounce:300">
+      </textarea>
+    </div>
+
+    <div id="tlv-tree" class="tree-pane" >
+      <div repeat.for="info of rootTLVInfo.childTLVInfos">
+        <tlv-node tlv-info.bind="info"></tlv-node>
+      </div>
+      <div if.bind="rootTLVInfo.childTLVInfos.length == 0" style="height: 400px; border: 3px dotted #888; border-radius: 5px; padding: 10px;">
+        <h3><i>Explore</i> mode</h3>
+        <p>Decompose hexadecimal TLV data, and represent it as a tree.</p>
+        <p>Context sensitive lookup, ISO / EMV and different payment-card standards</p>
+        <br/>
+        <p>try something like <a click.trigger="hexInput = '700e 5a086271550000000001 5f340100'">700e 5a086271550000000001 5f340100</span></a>
+      </div>
+    </div>
+  </div>
+</template>

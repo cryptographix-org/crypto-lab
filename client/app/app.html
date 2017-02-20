@@ -1,0 +1,41 @@
+<template>
+  <require from="header/lab-header"></require>
+  <require from="canvas/workspace/workspace"></require>
+  <require from="canvas/sidebar/sidebar"></require>
+  <require from="canvas/palette/palette"></require>
+  <lab-header>
+  </lab-header>
+  <div id="main-container" class="hide" style="display: block;">
+    <workspace id="workspace" style="right: 166px;">
+    </workspace>
+
+    <palette id="palette">
+    </palette>
+
+    <sidebar id="sidebar" style="width: 158px;" class="">
+    </sidebar>
+
+    <div id="sidebar-separator" class="ui-draggable" style="left: auto; right: 158px; display: block;"></div>
+
+    <div id="red-ui-search" class="red-ui-search" style="display: none;">
+      <div class="red-ui-search-container">
+        <div class="red-ui-searchBox-container">
+          <i class="fa fa-search"></i>
+          <input type="text" placeholder="search your flows">
+          <a href="#" style="display: none;">
+            <i class="fa fa-times"></i>
+          </a>
+          <span class="red-ui-searchBox-resultCount hide"></span>
+        </div>
+      </div>
+      <div class="red-ui-search-results-container">
+        <div class="red-ui-editableList" style="top: 5px; left: 5px; bottom: 5px; right: 5px; position: absolute;">
+          <div style="top: 0px; left: 0px; bottom: 0px; right: 0px; position: absolute; overflow-y: scroll;" class="red-ui-editableList-container">
+            <ol id="search-result-list" style="position: static; top: auto; bottom: auto; left: auto; right: auto; height: auto;" class="red-ui-editableList-list"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  ${msg}
+</template>
